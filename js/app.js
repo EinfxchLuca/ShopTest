@@ -8,25 +8,33 @@ let cart = [];
 // ============ INITIALISIERUNG ============
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadProducts();
   loadCart();
   updateShopInfo();
-  renderProducts();
-  updateCartUI();
+  loadProducts().then(() => {
+    renderProducts();
+    updateCartUI();
+  });
 });
 
 // ============ PRODUKTE LADEN ============
 
 function loadProducts() {
-  fetch('./data/products.json')
-    .then(response => response.json())
+  return fetch('./data/products.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then(data => {
-      products = data.products;
+      products = data.products || [];
+      console.log('Produkte geladen:', products.length);
+      return products;
     })
     .catch(error => {
       console.error('Fehler beim Laden der Produkte:', error);
-      // Fallback für Entwicklung
       products = [];
+      return [];
     });
 }
 
