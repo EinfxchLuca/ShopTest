@@ -23,11 +23,10 @@
                     <p id="shop-claim">Premium 3D-gedruckte Extreme-Weather-Modelle</p>
                 </div>
             </div>
-            <div class="cart-toggle-header" id="cart-toggle" onclick="toggleCart()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="cart-button" id="cart-button" onclick="openCart()">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
         </div>
     </header>
 
@@ -42,50 +41,51 @@
     </section>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <div class="main-wrapper">
-        <main>
-            <div class="container">
-                <section>
-                    <h2 class="section-title">Unsere Produkte</h2>
-                    <div id="products-grid">
-                        <p class="loading">Produkte werden geladen...</p>
-                    </div>
-                </section>
-            </div>
-        </main>
-
-        <!-- ===== CART SIDEBAR ===== -->
-        <aside id="cart-sidebar">
-            <div class="cart-header">
-                <h2>Warenkorb</h2>
-                <div class="cart-badge" id="cart-count">0</div>
-            </div>
-
-            <div id="empty-cart-message">
-                <p>Warenkorb ist leer</p>
-            </div>
-
-            <div id="cart-items"></div>
-
-            <div id="cart-summary" style="display: none;">
-                <div class="summary-row">
-                    <span class="summary-label">Zwischensumme:</span>
-                    <span class="summary-value" id="subtotal">€0,00</span>
+    <main>
+        <div class="container">
+            <section>
+                <h2 class="section-title">Unsere Produkte</h2>
+                <div id="products-grid">
+                    <p class="loading">Produkte werden geladen...</p>
                 </div>
-                <div class="summary-row">
-                    <span class="summary-label">MwSt. (19%):</span>
-                    <span class="summary-value" id="tax">€0,00</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Gesamt:</span>
-                    <span class="summary-value" id="total">€0,00</span>
-                </div>
-            </div>
+            </section>
+        </div>
+    </main>
 
-            <button class="btn-checkout" onclick="checkout()" id="checkout-btn">Zur Kasse</button>
-            <button class="btn-clear" onclick="clearCart()">Warenkorb leeren</button>
-        </aside>
-    </div>
+    <!-- ===== CART MODAL ===== -->
+    <div id="cart-overlay" class="cart-overlay" onclick="closeCart(event)"></div>
+    <aside id="cart-sidebar" class="cart-panel">
+        <div class="cart-header">
+            <h2>Warenkorb</h2>
+            <button class="cart-close" onclick="closeCart()" title="Schließen">✕</button>
+        </div>
+
+        <div id="empty-cart-message" class="empty-message">
+            <p>Ihr Warenkorb ist leer</p>
+        </div>
+
+        <div id="cart-items" class="cart-items-container"></div>
+
+        <div id="cart-summary" class="cart-summary" style="display: none;">
+            <div class="summary-row">
+                <span class="summary-label">Zwischensumme:</span>
+                <span class="summary-value" id="subtotal">€0,00</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">MwSt. (19%):</span>
+                <span class="summary-value" id="tax">€0,00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Gesamtbetrag:</span>
+                <span class="summary-value" id="total">€0,00</span>
+            </div>
+        </div>
+
+        <div class="cart-actions">
+            <button class="btn-checkout" onclick="checkout()" id="checkout-btn">Zur Kasse gehen</button>
+            <button class="btn-clear" onclick="clearCart()">Leeren</button>
+        </div>
+    </aside>
 
     <!-- ===== FOOTER ===== -->
     <footer>

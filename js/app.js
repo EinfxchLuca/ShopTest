@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
     updateCartUI();
   });
+
+  // ESC-Taste zum Schließen des Warenkorbs
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeCart();
+    }
+  });
 });
 
 // ============ PRODUKTE LADEN ============
@@ -175,7 +182,13 @@ function updateCartUI() {
   if (cartCount) {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalItems;
-    cartCount.style.display = totalItems > 0 ? 'block' : 'none';
+    
+    // Verstecke Badge wenn leer
+    if (totalItems > 0) {
+      cartCount.classList.remove('hidden');
+    } else {
+      cartCount.classList.add('hidden');
+    }
   }
   
   // Warenkorb-Items
@@ -236,24 +249,46 @@ function checkout() {
   alert(`Checkout-Funktion würde aktiviert werden.\n\nGesamtbetrag: ${CONFIG.CURRENCY_SYMBOL}${total.toFixed(2)}\n\nDies ist ein Platzhalter für Zahlungsintegration (z.B. Stripe, PayPal).`);
 }
 
-// ============ CART TOGGLE (Mobile) ============
+// ============ CART TOGGLE (Modal Control) ============
+
+function openCart() {
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cart-overlay');
+  const panel = document.querySelector('.cart-panel');
+  
+  if (sidebar) sidebar.classList.add('open');
+  if (overlay) overlay.classList.add('open');
+  if (panel) panel.classList.add('open');
+  
+  // Scrolling blockieren wenn Modal offen
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart(event) {
+  // Wenn auf Overlay geklickt wird (nicht auf den Cart selbst)
+  if (event && event.target.id !== 'cart-overlay') {
+    return;
+  }
+  
+  const sidebar = document.getElementById('cart-sidebar');
+  const overlay = document.getElementById('cart-overlay');
+  const panel = document.querySelector('.cart-panel');
+  
+  if (sidebar) sidebar.classList.remove('open');
+  if (overlay) overlay.classList.remove('open');
+  if (panel) panel.classList.remove('open');
+  
+  // Scrolling wieder aktivieren
+  document.body.style.overflow = '';
+}
 
 function toggleCart() {
   const sidebar = document.getElementById('cart-sidebar');
-  if (sidebar) {
-    sidebar.classList.toggle('open');
+  const panel = document.querySelector('.cart-panel');
+  
+  if (sidebar && sidebar.classList.contains('open')) {
+    closeCart();
+  } else {
+    openCart();
   }
 }
-
-// Schließe Warenkorb wenn Overlay geklickt wird
-document.addEventListener('click', (e) => {
-  const sidebar = document.getElementById('cart-sidebar');
-  const toggleBtn = document.getElementById('cart-toggle');
-  
-  if (sidebar && toggleBtn && 
-      !sidebar.contains(e.target) && 
-      !toggleBtn.contains(e.target) &&
-      sidebar.classList.contains('open')) {
-    sidebar.classList.remove('open');
-  }
-});
