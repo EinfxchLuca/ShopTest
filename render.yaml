@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: tornado-interceptors
+    buildCommand: echo "Static site - no build needed"
+    staticPublishPath: ./
+    envVars:
+      - key: STATIC_PUBLISH_PATH
+        value: ./

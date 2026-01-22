@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TORNADO INTERCEPTORS - Premium 3D-gedruckte Extreme-Weather-Modelle">
+    <title>TORNADO INTERCEPTORS | 3D-Modelle</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%231e90ff'/><path d='M50 20 Q60 40 50 60 Q40 40 50 20' fill='%23ffffff' opacity='0.6'/></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo">🌪️</div>
+                <div class="header-text">
+                    <h1 id="shop-name">TORNADO INTERCEPTORS</h1>
+                    <p id="shop-claim">Premium 3D-gedruckte Extreme-Weather-Modelle</p>
+                </div>
+            </div>
+            <div class="cart-toggle-header" id="cart-toggle" onclick="toggleCart()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Extreme Weather Models</h2>
+                <p>Handgefertigte 3D-Modelle für Sammler und Enthusiasten</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-wrapper">
+        <main>
+            <div class="container">
+                <section>
+                    <h2 class="section-title">Unsere Produkte</h2>
+                    <div id="products-grid">
+                        <p class="loading">Produkte werden geladen...</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- ===== CART SIDEBAR ===== -->
+        <aside id="cart-sidebar">
+            <div class="cart-header">
+                <h2>Warenkorb</h2>
+                <div class="cart-badge" id="cart-count">0</div>
+            </div>
+
+            <div id="empty-cart-message">
+                <p>Warenkorb ist leer</p>
+            </div>
+
+            <div id="cart-items"></div>
+
+            <div id="cart-summary" style="display: none;">
+                <div class="summary-row">
+                    <span class="summary-label">Zwischensumme:</span>
+                    <span class="summary-value" id="subtotal">€0,00</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">MwSt. (19%):</span>
+                    <span class="summary-value" id="tax">€0,00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Gesamt:</span>
+                    <span class="summary-value" id="total">€0,00</span>
+                </div>
+            </div>
+
+            <button class="btn-checkout" onclick="checkout()" id="checkout-btn">Zur Kasse</button>
+            <button class="btn-clear" onclick="clearCart()">Warenkorb leeren</button>
+        </aside>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Über uns</h3>
+                    <p style="font-size: 13px; color: var(--color-gray-lighter); line-height: 1.6;">
+                        Wir fertigen hochwertige 3D-Modelle von Tornados und extremen Wetterereignissen. 
+                        Jedes Modell ist ein Unikat und wird mit Sorgfalt handgefertigt.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <ul>
+                        <li><a href="#produkte">Produkte</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#versand">Versand & Lieferung</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <ul>
+                        <li><a href="#impressum">Impressum</a></li>
+                        <li><a href="#datenschutz">Datenschutz</a></li>
+                        <li><a href="#agb">AGB</a></li>
+                        <li><a href="#widerrufsrecht">Widerrufsrecht</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <ul>
+                        <li>E-Mail: <a href="mailto:info@tornadointerceptors.de">info@tornadointerceptors.de</a></li>
+                        <li>Telefon: <a href="tel:+4912345678">+49 (0) 123 456 78</a></li>
+                        <li>Adresse: Tornado Str. 42, 12345 Sturm City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TORNADO INTERCEPTORS. Alle Rechte vorbehalten. | Made with ⚡ for extreme weather lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="./js/config.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

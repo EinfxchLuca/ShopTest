@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Tornado Interceptor Pro",
+      "price": 49.99,
+      "description": "Hochdetailliertes 3D-gedrucktes Tornado-Modell mit beweglichen Komponenten. 15cm Höhe, in Graustufen-Design.",
+      "image": "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=400&fit=crop",
+      "category": "Premium"
+    },
+    {
+      "id": 2,
+      "name": "Storm Chaser Edition",
+      "price": 34.99,
+      "description": "Kompaktes Tornado-Modell ideal für Sammler. Stahlblau-Lackierung mit realistischen Details. 10cm.",
+      "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+      "category": "Standard"
+    },
+    {
+      "id": 3,
+      "name": "Supercell Deluxe",
+      "price": 64.99,
+      "description": "Großes Sammlerstück mit LED-Beleuchtung. Zeigt mehrere Wirbelsturm-Stadien. Höhe 20cm.",
+      "image": "https://images.unsplash.com/photo-1599720033576-294aa9c69b91?w=400&h=400&fit=crop",
+      "category": "Premium"
+    },
+    {
+      "id": 4,
+      "name": "Wind Vortex Mini",
+      "price": 19.99,
+      "description": "Kleine kompakte Version für Anfänger. Perfekt als Geschenk. 7cm Höhe, Grau-Weiß.",
+      "image": "https://images.unsplash.com/photo-1552159740-2b6b05a1490e?w=400&h=400&fit=crop",
+      "category": "Starter"
+    },
+    {
+      "id": 5,
+      "name": "Extreme Weather Collection Set",
+      "price": 89.99,
+      "description": "Set aus 3 verschiedenen Tornado-Modellen in Premium-Box. Limitierte Auflage.",
+      "image": "https://images.unsplash.com/photo-1517638021531-4a5a04d38e6c?w=400&h=400&fit=crop",
+      "category": "Premium"
+    },
+    {
+      "id": 6,
+      "name": "Interceptor Base Stand",
+      "price": 14.99,
+      "description": "Stabiler Display-Ständer für alle Tornado-Modelle. Metallbasis, anthrazit.",
+      "image": "https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=400&h=400&fit=crop",
+      "category": "Zubehör"
+    }
+  ]
+}
